@@ -34,7 +34,7 @@ x-airflow-common:
     - ./plugins:/opt/airflow/plugins
     - ./codigo:/opt/airflow/codigo
     - ./tmp:/opt/airflow/tmp
-    - ./data_excel/:/opt/data_
+    - /mnt/admin_share/:/opt/data_
     
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
@@ -113,7 +113,7 @@ services:
     <<: *airflow-common
     command: webserver
     ports:
-      - "8080:8080"
+      - "80:8080"
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
       interval: 30s
