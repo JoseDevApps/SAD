@@ -4,3 +4,4 @@ conda-forge::django-filter==23.5
 conda-forge::markdown==3.5.2
 conda-forge::pyjwt==2.8.0
 conda-forge::django-cors-headers==4.3.1
+conda-forge::psycopg2-binary
