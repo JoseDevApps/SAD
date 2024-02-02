@@ -28,9 +28,6 @@ df.iloc[inds].to_csv('/opt/airflow/tmp/null_data.csv')
 df.dropna(inplace=True)
 # verificar cuantos datos son isodatetime
 mask = [datetime_valid(a) for a in df.index]
-# convert datetime to ISO
-df.iloc[mask].index = pd.to_datetime(df.iloc[mask].index, format=date_format)
-print(df.iloc[mask].index)
 # Output
 df.to_csv('/opt/airflow/tmp/temp_T.csv')
 df.to_feather('/opt/airflow/tmp/temp_T.csv')
