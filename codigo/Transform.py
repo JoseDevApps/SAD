@@ -11,7 +11,7 @@ def datetime_valid(dt_str):
 
 # Input
 path = '/opt/airflow/tmp'
-filename = 'temp_E.csv'
+filename = 'QII_2024-02-02.feather'
 date_format = '%d/%m/%Y %H:%M:%S'
 # Process
 fn = path + '/' + filename
@@ -33,6 +33,7 @@ df.iloc[mask].index = pd.to_datetime(df.iloc[mask].index, format=date_format)
 print(df.iloc[mask].index)
 # Output
 df.to_csv('/opt/airflow/tmp/temp_T.csv')
+df.to_feather('/opt/airflow/tmp/temp_T.csv')
 # report null data in transform
 print(df.index[0])
 df_r = pd.Series({
@@ -42,3 +43,4 @@ df_r = pd.Series({
     'NoCampos': np.array(NoFields)
 })
 df_r.to_csv('/opt/airflow/tmp/ResumeData.csv')
+df_r.to_csv('/opt/airflow/tmp/ResumeData.feather')
