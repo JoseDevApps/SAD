@@ -15,7 +15,7 @@ filename = 'QII_2024-02-02.feather'
 date_format = '%d/%m/%Y %H:%M:%S'
 # Process
 fn = path + '/' + filename
-df = pd.read_csv(fn, index_col=0)
+df = pd.read_feather(fn, index_col=0)
 inds = pd.isnull(df).any(1).to_numpy().nonzero()[0]
 # Numero de datos nulos
 NoNaN = len(inds)
