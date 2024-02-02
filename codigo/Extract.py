@@ -13,11 +13,12 @@ Lectura de Base de datos para interpretar el esquema
 '''
 Lectura del archivo CSV en el directorio SAMBA
 '''
-path = 'E:/CPERv/Centralizacion de datos/DataSCADA/' #SQL DB
-filename = 'Aero_10 minutos_6861_2024-01-30_2024-01-31.csv' #SQL DB
+path_docker_in = '/opt/data_/' #SQL DB
+path_docker_out = '/opt/airflow/tmp/'
+filename = 'Aero_10 minutos_6861_2024-01-30_2024-01-31_2.csv' #SQL DB
 skiprows = 0 # SQL DB
-source = path+'/'+filename
+source = path_docker_in+'/'+filename
 df = pd.read_csv(source, skiprows=skiprows,sep=';', engine='python',quotechar='"', decimal=",", parse_dates=['Hora']).replace('"','')
 df.dropna(axis=1, how='all', inplace=True)
-df.to_feather("QII_"+str(date.today())+".feather")
-df.to_csv("QII_"+str(date.today())+".csv")
+df.to_feather(path_docker_out+"QII_"+str(date.today())+".feather")
+df.to_csv(path_docker_out+"QII_"+str(date.today())+".csv")
