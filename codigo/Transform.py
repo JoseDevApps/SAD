@@ -30,9 +30,7 @@ df.dropna(inplace=True)
 mask = [datetime_valid(a) for a in df.index]
 # Output
 df.to_csv('/opt/airflow/tmp/temp_T.csv')
-df.to_feather('/opt/airflow/tmp/temp_T.feather')
 # report null data in transform
-print(df.index[0])
 df_r = pd.Series({
     'Fecha': np.array(df.index[0]),
     'NoNan': np.array(NoNaN),
