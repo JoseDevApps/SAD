@@ -40,4 +40,3 @@ df_r = pd.Series({
     'NoCampos': np.array(NoFields)
 })
 df_r.to_csv('/opt/airflow/tmp/ResumeData.csv')
-df_r.to_feather('/opt/airflow/tmp/ResumeData.feather')
